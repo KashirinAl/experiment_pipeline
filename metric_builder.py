@@ -22,53 +22,17 @@ class Metric:
         self._config = metric_config
 
     @property
-    def name(self) -> str:
-        return self._config.get("name", "default_value")
+    def estimators(self) -> str:
+        return self._config.get("estimators", "default_value")
 
     @property
-    def type(self) -> str:
-        return self._config.get("type", "default_metric_type")
+    def lifts(self) -> str:
+        return self._config.get("lifts", "default_value")
 
     @property
-    def level(self) -> str:
-        return self._config.get("level", "default_unit_level")
-
-    @property
-    def estimator(self) -> str:
-        return self._config.get("estimator", "default_estimator")
-
-    @property
-    def numerator(self) -> dict:
-        return self._config.get("numerator", {"aggregation_field": "default_value"})
-
-    @property
-    def denominator(self) -> dict:
-        return self._config.get("denominator", {"aggregation_field": "default_value"})
-
-    @property
-    def numerator_aggregation_field(self) -> str:
-        return self.numerator.get("aggregation_field", "default_value")
-
-    @property
-    def denominator_aggregation_field(self) -> str:
-        return self.denominator.get("aggregation_field", "default_value")
-
-    @property
-    def numerator_aggregation_function(self) -> callable:
-        return self._map_aggregation_function(self.numerator.get("aggregation_function"))
-
-    @property
-    def denominator_aggregation_function(self) -> callable:
-        return self._map_aggregation_function(self.denominator.get("aggregation_function"))
-
-    @property
-    def denominator_aggregation_function(self) -> callable:
-        return self._map_aggregation_function(self.denominator.get("numerator_filter"))
-
-    @property
-    def denominator_aggregation_function(self) -> callable:
-        return self._map_aggregation_function(self.denominator.get("denominator_filter"))
-    
+    def transmorms(self) -> str:
+        return self._config.get("transforms", "default_value")
+        
     @staticmethod
     def _map_aggregation_function(aggregation_function: str) -> callable:
         mappings = {
