@@ -62,11 +62,11 @@ class Metric:
         return self._map_aggregation_function(self.denominator.get("aggregation_function"))
 
     @property
-    def denominator_aggregation_function(self) -> callable:
+    def numerator_filter(self) -> callable:
         return self._map_aggregation_function(self.denominator.get("numerator_filter"))
 
     @property
-    def denominator_aggregation_function(self) -> callable:
+    def denominator_filter(self) -> callable:
         return self._map_aggregation_function(self.denominator.get("denominator_filter"))
     
     @staticmethod
